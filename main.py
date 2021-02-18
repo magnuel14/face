@@ -44,7 +44,7 @@ fps = int(cap.get(cv2.CAP_PROP_FPS))
 scale_w = 1.2 / 2
 scale_h = 4 / 2
 
-SOLID_BACK_COLOR = (41, 41, 41)
+SOLID_BACK_COLOR = (33, 97, 140)
 # Configurar el escritor de video
 fourcc = cv2.VideoWriter_fourcc(*"XVID")
 output_movie = cv2.VideoWriter("DetecciónDePeatones.avi", fourcc, fps, (width, height))

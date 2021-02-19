@@ -79,7 +79,7 @@ while cap.isOpened():
     frame_w = frame.shape[1]
 
     if frame_num == 1:
-# Pida al usuario que marque puntos paralelos y dos puntos separados por 6 pies. Orden bl, br, tr, tl, p1, p2
+# Pida al usuario que marque puntos paralelos y dos puntos separados por 1.8m . Orden bl, br, tr, tl, p1, p2
         while True:
             image = frame
             cv2.imshow("image", image)

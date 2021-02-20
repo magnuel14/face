@@ -5,6 +5,7 @@ pip install –r requirements.txt
 Ejecutar app
 cd SocialDistancingAI
 python main.py --videopath "video_corto.mp4"
+python main.py --videopath "video_corto1.avi"
 
 Funcionamiento de los puntos:
 Los primeros 4 de los 6 puntos requeridos se utilizan para marcar la región de interés (ROI) donde desea monitorear. Además, las líneas marcadas por estos puntos deben ser líneas paralelas en el mundo real como se ve desde arriba. Por ejemplo, estas líneas podrían ser los bordillos de la carretera.

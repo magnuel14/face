@@ -3,6 +3,11 @@ import os
 import argparse
 from network_model import model
 from aux_functions import *
+#controlar video
+import argparse
+import imutils
+#audio
+from audio import *
 
 # Suppress TF warnings
 os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
@@ -36,7 +41,8 @@ input_video = args.videopath
 # Se define un modelo DNN 
 DNN = model()
 #Se obtine cabezera del video
-cap = cv2.VideoCapture(input_video)
+#cap = cv2.VideoCapture(input_video)
+cap= cv2.VideoCapture(0)
 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
 width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
 fps = int(cap.get(cv2.CAP_PROP_FPS))
@@ -44,7 +50,7 @@ fps = int(cap.get(cv2.CAP_PROP_FPS))
 scale_w = 1.2 / 2
 scale_h = 4 / 2
 
-SOLID_BACK_COLOR = (41, 41, 41)
+SOLID_BACK_COLOR = (41, 41, 41 )
 # Configurar el escritor de video
 fourcc = cv2.VideoWriter_fourcc(*"XVID")
 output_movie = cv2.VideoWriter("DetecciónDePeatones.avi", fourcc, fps, (width, height))
@@ -66,6 +72,9 @@ cv2.setMouseCallback("image", get_mouse_points)
 num_mouse_points = 0
 first_frame_display = True
 
+
+
+
 # Se procesa cada fotograma, hasta el final del video
 while cap.isOpened():
     frame_num += 1
@@ -79,7 +88,8 @@ while cap.isOpened():
     frame_w = frame.shape[1]
 
     if frame_num == 1:
-# Pida al usuario que marque puntos paralelos y dos puntos separados por 6 pies. Orden bl, br, tr, tl, p1, p2
+# Pida al usuario que marque puntos paralelos y 
+# dos puntos separados por 6 pies. Orden bl, br, tr, tl, p1, p2
         while True:
             image = frame
             cv2.imshow("image", image)
@@ -112,8 +122,9 @@ while cap.isOpened():
         [four_points[0], four_points[1], four_points[3], four_points[2]], np.int32
     )
     cv2.polylines(frame, [pts], True, (0, 255, 255), thickness=4)
-
-    #Detectar personas y cuadros delimitadores mediante DNN(Detección de objetos basada en Deep Learning )
+   
+    #Detectar personas y cuadros delimitadores mediante 
+    # DNN(Detección de objetos basada en Deep Learning )
     pedestrian_boxes, num_pedestrians = DNN.detect_pedestrians(frame)
 
     if len(pedestrian_boxes) > 0:
@@ -129,13 +140,16 @@ while cap.isOpened():
         total_pairs += pairs
 
         total_six_feet_violations += six_feet_violations / fps
+    
         abs_six_feet_violations += six_feet_violations
         pedestrian_per_sec, sh_index = calculate_stay_at_home_index(
             total_pedestrians_detected, frame_num, fps
         )
-
+    aux=0
     last_h = 75
     text = "# 180cm violaciones: " + str(int(total_six_feet_violations))
+      
+        
     pedestrian_detect, last_h = put_text(pedestrian_detect, text, text_offset_y=last_h)
 
     text = "IndicePer: " + str(np.round(100 * sh_index, 1)) + "%"
@@ -147,7 +161,9 @@ while cap.isOpened():
     text = "IDistanciamiento: " + str(np.round(100 * sc_index, 1)) + "%"
     pedestrian_detect, last_h = put_text(pedestrian_detect, text, text_offset_y=last_h)
 
-    cv2.imshow("Street Cam", pedestrian_detect)
-    cv2.waitKey(1)
+    cv2.imshow("Deteccion_en_tiempo_real", pedestrian_detect)
+    cv2.waitKey(1) 
     output_movie.write(pedestrian_detect)
     bird_movie.write(bird_image)
+
+

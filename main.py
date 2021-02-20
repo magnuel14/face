@@ -50,7 +50,11 @@ fps = int(cap.get(cv2.CAP_PROP_FPS))
 scale_w = 1.2 / 2
 scale_h = 4 / 2
 
+<<<<<<< HEAD
 SOLID_BACK_COLOR = (41, 41, 41 )
+=======
+SOLID_BACK_COLOR = (33, 97, 140)
+>>>>>>> 730470fcc34b63abebc4004d8a9a5e50418a3201
 # Configurar el escritor de video
 fourcc = cv2.VideoWriter_fourcc(*"XVID")
 output_movie = cv2.VideoWriter("DetecciónDePeatones.avi", fourcc, fps, (width, height))
@@ -88,8 +92,12 @@ while cap.isOpened():
     frame_w = frame.shape[1]
 
     if frame_num == 1:
+<<<<<<< HEAD
 # Pida al usuario que marque puntos paralelos y 
 # dos puntos separados por 6 pies. Orden bl, br, tr, tl, p1, p2
+=======
+# Pida al usuario que marque puntos paralelos y dos puntos separados por 1.8m . Orden bl, br, tr, tl, p1, p2
+>>>>>>> 730470fcc34b63abebc4004d8a9a5e50418a3201
         while True:
             image = frame
             cv2.imshow("image", image)

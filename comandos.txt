@@ -6,6 +6,13 @@ Ejecutar app
 cd SocialDistancingAI
 python main.py --videopath "video_corto.mp4"
 python main.py --videopath "video_corto1.avi"
+python main.py --videopath "prueba.mp4"
+python main.py --videopath "video1.mp4"
+
+python main.py --videopath "video2.mp4"
+
+
+#(7, 470), (623, 465), (11, 6), (620, 6), (166, 207), (626, 210), (525, 202)
 
 Funcionamiento de los puntos:
 Los primeros 4 de los 6 puntos requeridos se utilizan para marcar la región de interés (ROI) donde desea monitorear. Además, las líneas marcadas por estos puntos deben ser líneas paralelas en el mundo real como se ve desde arriba. Por ejemplo, estas líneas podrían ser los bordillos de la carretera.

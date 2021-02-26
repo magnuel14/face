@@ -2,6 +2,7 @@
 1. Crear un entorno en anconda
 2. Instalar las librerias con el comando:
     - pip install -r requirements.txt
+\\
 Nota: puede que las librerias  den error, esto puede ocurrir si usas una version
 de python diferente, este proyecto se usa:
 - Python 3.7.9

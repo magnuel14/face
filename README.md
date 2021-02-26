@@ -1,11 +1,11 @@
 # face
-1. Crear un entorno en ancaonda
-2. Instalar las librerias con el comando 
-    pip install -r requirements.txt
-Nota: puede que las librerias te den error, esto puede ocurrir si usas una version
-de python diferente, este proyecto se usas
-Python 3.7.9
-pip 21.0.1 
+1. Crear un entorno en anconda
+2. Instalar las librerias con el comando:
+    - pip install -r requirements.txt
+Nota: puede que las librerias  den error, esto puede ocurrir si usas una version
+de python diferente, este proyecto se usa:
+- Python 3.7.9
+- pip 21.0.1 
 3. Para ejecutar el analisis traves de webcam
     python menu.py
     El menu que se ejecuta tendra 3 opciones:
@@ -23,19 +23,19 @@ pip 21.0.1
 
 4. Para ejecutar el analisis para video locales
 el video debe estar en la carpeta actual 
-    python main.py --videopath "nombre.extension"
+    python maLocal.py --videopath "nombre.extension"
     ejemplo 
-    python main.py --videopath "video.mp4"
+    python maLocal.py --videopath "video.mp4"
 
-    Funcionamiento de los puntos:
+- Funcionamiento de los puntos:
 Los primeros 4 de los 6 puntos requeridos se utilizan para marcar la región de interés (ROI) donde desea monitorear. Además, las líneas marcadas por estos puntos deben ser líneas paralelas en el mundo real como se ve desde arriba. Por ejemplo, estas líneas podrían ser los bordillos de la carretera.
 Estos 4 puntos deben proporcionarse en el orden predefinido que sigue.
 
---Primeros 4 puntos
-    *Punto 1: abajo-izquierda 
-    *Punto 2: abajo-derecha
-    *Punto 3: arriba-izquierda
-    *Punto 4: arriba-derecha
+--Primeros 4 puntos:
+   - 1. Punto 1: abajo-izquierda 
+   - 2. Punto 2: abajo-derecha
+   - 3. Punto 3: arriba-izquierda 
+   - 4. Punto 4: arriba-derecha
 
 --Ultimos 2 puntos 
 Los ultimos 2 puntos son usados  como marcas,2  puntos separados  a un 1.80 metros en la región de interés. Por ejemplo, esta podría ser la altura de una persona (más fácil de marcar en el marco).

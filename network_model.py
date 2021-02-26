@@ -1,6 +1,6 @@
 # Already trained model available @
 # https://github.com/tensorflow/models/tree/master/research/object_detection
-# was used as a part of this code.
+# se utilizó como parte de este código.
 
 import backbone
 import tensorflow as tf

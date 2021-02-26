@@ -6,16 +6,13 @@ from aux_functions import *
 #controlar video
 import argparse
 import imutils
-#audio
-from audio import *
-
 
 def face():
     # Suprime abvertencias de TensorFlow 
     os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
     #variable que guarda los puntos
     mouse_pts = [(0, 477), (636, 479), (3, 3), (636, 8), (2, 362), (614, 376), (456, 301)]
-
+    count =1
     #funcion para encontrar los puntos
     '''
     def get_mouse_points(event, x, y, flags, param):
@@ -144,7 +141,7 @@ def face():
 
     # Pida al usuario que marque puntos paralelos y 
     # dos puntos separados por 180cm aproximadamnete. Orden bl, br, tr, tl, p1, p2  
-    #  un ciclo while que siempre se va evaluar como verdadero  
+    #  un ciclo while que siempre se va evaluar como verdadero 
             while True:
                 #se inicaliza la varibale image que contiene en fotograma
                 # esta imagen sera elprimer fotograma
@@ -246,14 +243,15 @@ def face():
         last_h = 75
         
         text = "# 180cm violaciones: " + str(int(total_six_feet_violations))
-        '''
-        t=total_six_feet_violations
-        if aux != total_six_feet_violations:
-            sondido()
-            aux=aux+1
-        '''
+        #print(total_six_feet_violations)
+       
         #imprime el texto en pantalla
         pedestrian_detect, last_h = put_text(pedestrian_detect, text, text_offset_y=last_h)
+        t=int(total_six_feet_violations)
+        if count ==t :
+            alarmaE();
+            count+=1
+            print(count)
 
         '''
         text = "IndicePer: " + str(np.round(100 * sh_index, 1)) + "%"
@@ -265,11 +263,9 @@ def face():
         text = "IDistanciamiento: " + str(np.round(100 * sc_index, 1)) + "%"
         pedestrian_detect, last_h = put_text(pedestrian_detect, text, text_offset_y=last_h)
         '''
-        #crea una pantalla con ese nimbre 
+        #crea una pantalla con ese nombre 
         cv2.imshow("Deteccion en tiempo real", pedestrian_detect)
         cv2.waitKey(1) 
         output_movie.write(pedestrian_detect)
         bird_movie.write(bird_image)
-
-
 

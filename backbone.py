@@ -1,7 +1,6 @@
-# Already trained model available @
+# Modelo ya entrenado disponible
 # https://github.com/tensorflow/models/tree/master/research/object_detection
-# was used as a part of this code.
-
+# se utilizó como parte de este código.
 import glob, os, tarfile, urllib
 import tensorflow as tf
 from utils import label_map_util

@@ -1,5 +1,6 @@
 from main import *
 from quickstart import *
+from alarma import *
 
 
 def pedirNumeroEntero():
@@ -20,8 +21,8 @@ opcion = 0
  
 while not salir:
  
-    print ("1. Opcion 1")
-    print ("2. Opcion 2")
+    print ("1. Reconocimiento de distancia social")
+    print ("2. Subir el video")
     print ("3. Opcion 3")
     print ("4. Salir")
      
@@ -30,14 +31,15 @@ while not salir:
     opcion = pedirNumeroEntero()
  
     if opcion == 1:
-        print ("Opcion 1")
-        modelo()
+        print ("Solo se procesa los fotogramas en que se detecte una persona ")
+        face()
 
     elif opcion == 2:
-        print ("Opcion 2")
+        print ("Autentiquese para guardar el archivo")
         gurdarArchivo()
     elif opcion == 3:
         print("Opcion 3")
+        alarma()
     elif opcion == 4:
         salir = True
     else:
